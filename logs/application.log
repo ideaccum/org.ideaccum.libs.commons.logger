@@ -1,0 +1,17 @@
+2019-04-29 19:15:05 |-ERROR - Failed to output log message(Undefined message code=AAA).
+2019-04-29 19:15:30 |-ERROR - Failed to output log message(Undefined message code=AAA).
+2019-04-29 19:17:14 |-ERROR - Failed to output log message(Undefined message code=AAA).
+2019-04-29 19:20:08 |-ERROR - Failed to output log message(Undefined message code=AAA).
+2019-04-29 19:20:08 |-ERROR - エラーメッセージ。
+2019-04-29 19:20:19 |-ERROR - Failed to output log message(Undefined message code=AAA).
+2019-04-29 19:20:19 |-ERROR - エラーメッセージ。
+2019-04-29 19:20:19 |-WARN  - 警告メッセージ。
+2019-04-29 19:20:19 |-INFO  - 情報メッセージ。
+2019-04-29 19:20:25 |-ERROR - Failed to output log message(Undefined message code=AAA).
+2019-04-29 19:20:25 |-ERROR - エラーメッセージ。
+2019-04-29 19:20:25 |-WARN  - 警告メッセージ。
+2019-04-29 19:20:25 |-INFO  - 情報メッセージ。
+2019-04-29 19:20:38 |-ERROR - エラーメッセージ。
+2019-04-29 19:20:38 |-WARN  - 警告メッセージ。
+2019-04-29 19:20:38 |-INFO  - 情報メッセージ。
+2019-04-29 19:20:38 |-ERROR - Failed to output log message(Undefined message code=FOO).

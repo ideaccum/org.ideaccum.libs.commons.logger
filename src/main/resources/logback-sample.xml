@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>TRACE</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<target>System.out</target>
+		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
+		<encoder class="org.ideaccum.libs.commons.logger.CustomPatternLayoutEncoder">
+			<pattern>%date{yyyy-MM-dd HH:mm:ss, Asia/Tokyo} |-%-5level %logger.%method\(%file:%line\) - %msg%n%exception</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="stderr" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>TRACE</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<target>System.err</target>
+		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
+		<encoder class="org.ideaccum.libs.commons.logger.CustomPatternLayoutEncoder">
+			<pattern>%date{yyyy-MM-dd HH:mm:ss, Asia/Tokyo} |-%-5level %logger.%method\(%file:%line\) - %msg%n%exception</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="application_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>TRACE</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<file>logs/application.log</file>
+		<append>true</append>
+		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
+		<encoder class="org.ideaccum.libs.commons.logger.CustomPatternLayoutEncoder">
+			<charset>UTF-8</charset>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss, Asia/Tokyo} |-%-5level - %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/application-%d{yyyyMMdd}.zip</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="error_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>TRACE</level>
+			<onMatch>DENY</onMatch>
+		</filter>
+		<file>logs/error.log</file>
+		<append>true</append>
+		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
+		<encoder class="org.ideaccum.libs.commons.logger.CustomPatternLayoutEncoder">
+			<charset>UTF-8</charset>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss, Asia/Tokyo} |-%-5level - %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/error-%d{yyyyMMdd}.zip</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+	<root level="TRACE">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="stderr" />
+		<appender-ref ref="application_log" />
+		<appender-ref ref="error_log" />
+	</root>
+
+	<logger name="org.reflections" level="OFF" />
+	<logger name="org.ideaccum" level="TRACE" />
+
+</configuration>

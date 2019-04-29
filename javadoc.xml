@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="protected"
+                 classpath="
+                 ../org.ideaccum.libs.commons/target/classes;
+                 ../org.ideaccum.libs.commons.message/target/classes;
+                 ../org.ideaccum.libs.commons.logger/target/classes;
+                 ../org.ideaccum.libs.commons.logger/lib/slf4j-api-1.7.25.jar;
+                 ../org.ideaccum.libs.commons.logger/lib/logback-classic-1.2.3.jar;
+                 ../org.ideaccum.libs.commons.logger/lib/logback-core-1.2.3.jar;
+                 "
+                 doctitle="org.ideaccum.libs.commons.message"
+                 additionalparam="
+                 -windowtitle org.ideaccum.libs.commons.message 
+                 -notimestamp 
+                 -quiet 
+                 -charset UTF-8 
+                 -encoding UTF-8 
+                 -J-Dfile.encoding=UTF-8 
+                 "
+                 author="true"
+                 nodeprecated="false"
+                 nodeprecatedlist="false"
+                 noindex="false"
+                 nonavbar="false"
+                 notree="false"
+                 source="1.8"
+                 use="true"
+                 version="true"
+                 splitindex="true"
+                 destdir="./doc"
+                 overview="./src/main/java/javadoc-overview.html"
+                 stylesheetfile="./src/main/java/javadoc-style.css"
+                 sourcepath="src/main/java;src/main/resources"
+        />
+    </target>
+</project>
