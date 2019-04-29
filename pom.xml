@@ -29,6 +29,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.ideaccum</groupId>
+			<artifactId>org.ideaccum.libs.commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ideaccum</groupId>
 			<artifactId>org.ideaccum.libs.commons.message</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

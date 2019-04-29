@@ -1,7 +1,9 @@
 # Ideaccum Commons Logger
 
 + org.ideaccum.libs.commons.logger [[MIT License]]
-  + org.ideaccum.libs.message [[MIT License]]
+  + org.ideaccum.libs.commons [[MIT License]]
+    + https://github.com/ideaccum/org.ideaccum.libs.commons/blob/master/LIBRARIES.md
+  + org.ideaccum.libs.commons.message [[MIT License]]
     + https://github.com/ideaccum/org.ideaccum.libs.commons.message/blob/master/LIBRARIES.md
   + slf4j-api-1.7.25.jar [[MIT License]]  
   + logback-classic-1.2.3.jar [[EPL 1.0 License]] [[LGPL 2.1 License]]  
