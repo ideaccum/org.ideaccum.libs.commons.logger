@@ -15,38 +15,42 @@ Commons Loggerでは、ログ出力時に指定するパラメータをメッセ
 - メッセージ定義サンプル  
   ログ出力を行うためのメッセージ定義は下記のようにプロパティリソースに定義します。  
 
-      MSG0001-E=エラーメッセージ。
-      MSG0002-W=警告メッセージ。
-      MSG0003-I=情報メッセージ。
-      MSG0004-D=デバッグメッセージ。
-      MSG0005-T=トレースメッセージ。
-      MSG0006-H=非表示内部メッセージ。
+  ```
+  MSG0001-E=エラーメッセージ。
+  MSG0002-W=警告メッセージ。
+  MSG0003-I=情報メッセージ。
+  MSG0004-D=デバッグメッセージ。
+  MSG0005-T=トレースメッセージ。
+  MSG0006-H=非表示内部メッセージ。
+  ```
 
 - ログ出力実装例  
   ログ出力時の実装方法はslf4j類似のログインスタンス生成から出力実装の流れとなります。  
   ファクトリやログ出力クラス名をslf4jのクラス名と揃えている理由はログ出力部の置き換えを極力局所的にすることを目的としているためです。  
 
-      private void test() {
-        // メッセージリソースを読み込みます
-        Messages.instance().addMessage(PropertiesUtil.load("/org/ideaccum/libs/commons/logger/test/TestLogger.properties"));
+  ```java
+  private void test() {
+    // メッセージリソースを読み込みます
+    Messages.instance().addMessage(PropertiesUtil.load("/org/ideaccum/libs/commons/logger/test/TestLogger.properties"));
 
-        // 必要に応じてログ出力環境定義情報で初期化を行います(slf4jで利用する初期化定義体と同様)
-        LoggerConfigurator.initialize(ResourceUtil.getURL("/logback-sample.xml"));
+    // 必要に応じてログ出力環境定義情報で初期化を行います(slf4jで利用する初期化定義体と同様)
+    LoggerConfigurator.initialize(ResourceUtil.getURL("/logback-sample.xml"));
 
-        // ログ出力クラスインスタンスを取得します(slf4j同様)
-        Logger logger = LoggerFactory.getLogger(getClass());
+    // ログ出力クラスインスタンスを取得します(slf4j同様)
+    Logger logger = LoggerFactory.getLogger(getClass());
 
-        // ログ出力を行います(info、error等のメソッドではなく、一律outputメソッドとなります)
-        // ログ出力レベルはメッセージ定義側のメッセージレベルを変えることでログ出力レベル側に反映されます
-        //logger.info("slf4の標準的なログ出力");
-        logger.output("MSG0001"); // エラーレベルでログ出力が行われます(slf4jのerror)
-        logger.output("MSG0002"); // 警告レベルでログ出力が行われます(slf4jのwarn)
-        logger.output("MSG0003"); // 情報レベルでログ出力が行われます(slf4jのinfo)
-        logger.output("MSG0004"); // デバッグレベルでログ出力が行われます(slf4jのdebug)
-        logger.output("MSG0005"); // トレースレベルでログ出力が行われます(slf4jのtrace)
-        logger.output("MSG0006"); // ログ出力は行われません
-        logger.output("FOO"); // "Failed to output log message(Undefined message code=FOO)."が出力されます
-      }
+    // ログ出力を行います(info、error等のメソッドではなく、一律outputメソッドとなります)
+    // ログ出力レベルはメッセージ定義側のメッセージレベルを変えることでログ出力レベル側に反映されます
+    //logger.info("slf4の標準的なログ出力");
+    logger.output("MSG0001"); // エラーレベルでログ出力が行われます(slf4jのerror)
+    logger.output("MSG0002"); // 警告レベルでログ出力が行われます(slf4jのwarn)
+    logger.output("MSG0003"); // 情報レベルでログ出力が行われます(slf4jのinfo)
+    logger.output("MSG0004"); // デバッグレベルでログ出力が行われます(slf4jのdebug)
+    logger.output("MSG0005"); // トレースレベルでログ出力が行われます(slf4jのtrace)
+    logger.output("MSG0006"); // ログ出力は行われません
+    logger.output("FOO"); // "Failed to output log message(Undefined message code=FOO)."が出力されます
+  }
+  ```
 
 ## Documentation
 ライブラリに関するAPI仕様は各クラスのJavadocにて記載しています。  
