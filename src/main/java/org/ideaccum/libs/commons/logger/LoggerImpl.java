@@ -16,6 +16,7 @@ import org.ideaccum.libs.commons.message.Messages;
  *<!--
  * 更新日		更新者			更新内容
  * 2018/06/13	Kitagawa		新規作成
+ * 2019/05/06	Kitagawa		is***Enabledメソッドをインタフェース側にプルアップ
  *-->
  */
 public final class LoggerImpl implements Logger {
@@ -35,8 +36,10 @@ public final class LoggerImpl implements Logger {
 	/**
 	 * デバッグレベルロギングが有効であるか判定します。<br>
 	 * @return 有効な場合にtrueを返却
+	 * @see org.ideaccum.libs.commons.logger.Logger#isDebugEnabled()
 	 * @see org.slf4j.Logger#isDebugEnabled()
 	 */
+	@Override
 	public final boolean isDebugEnabled() {
 		return logger.isDebugEnabled();
 	}
@@ -44,8 +47,10 @@ public final class LoggerImpl implements Logger {
 	/**
 	 * エラーレベルロギングが有効であるか判定します。<br>
 	 * @return 有効な場合にtrueを返却
+	 * @see org.ideaccum.libs.commons.logger.Logger#isErrorEnabled()
 	 * @see org.slf4j.Logger#isErrorEnabled()
 	 */
+	@Override
 	public final boolean isErrorEnabled() {
 		return logger.isErrorEnabled();
 	}
@@ -53,8 +58,10 @@ public final class LoggerImpl implements Logger {
 	/**
 	 * 情報レベルロギングが有効であるか判定します。<br>
 	 * @return 有効な場合にtrueを返却
+	 * @see org.ideaccum.libs.commons.logger.Logger#isInfoEnabled()
 	 * @see org.slf4j.Logger#isInfoEnabled()
 	 */
+	@Override
 	public final boolean isInfoEnabled() {
 		return logger.isInfoEnabled();
 	}
@@ -62,8 +69,10 @@ public final class LoggerImpl implements Logger {
 	/**
 	 * トレースレベルロギングが有効であるか判定します。<br>
 	 * @return 有効な場合にtrueを返却
+	 * @see org.ideaccum.libs.commons.logger.Logger#isTraceEnabled()
 	 * @see org.slf4j.Logger#isTraceEnabled()
 	 */
+	@Override
 	public final boolean isTraceEnabled() {
 		return logger.isTraceEnabled();
 	}
@@ -73,6 +82,7 @@ public final class LoggerImpl implements Logger {
 	 * @return 有効な場合にtrueを返却
 	 * @see org.slf4j.Logger#isWarnEnabled()
 	 */
+	@Override
 	public final boolean isWarnEnabled() {
 		return logger.isWarnEnabled();
 	}
