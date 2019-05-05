@@ -35,9 +35,12 @@ public final class LoggerImpl implements Logger {
 
 	/**
 	 * デバッグレベルロギングが有効であるか判定します。<br>
+	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
 	 * @return 有効な場合にtrueを返却
 	 * @see org.ideaccum.libs.commons.logger.Logger#isDebugEnabled()
 	 * @see org.slf4j.Logger#isDebugEnabled()
+	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
 	 */
 	@Override
 	public final boolean isDebugEnabled() {
@@ -46,9 +49,12 @@ public final class LoggerImpl implements Logger {
 
 	/**
 	 * エラーレベルロギングが有効であるか判定します。<br>
+	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
 	 * @return 有効な場合にtrueを返却
 	 * @see org.ideaccum.libs.commons.logger.Logger#isErrorEnabled()
 	 * @see org.slf4j.Logger#isErrorEnabled()
+	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
 	 */
 	@Override
 	public final boolean isErrorEnabled() {
@@ -57,9 +63,12 @@ public final class LoggerImpl implements Logger {
 
 	/**
 	 * 情報レベルロギングが有効であるか判定します。<br>
+	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
 	 * @return 有効な場合にtrueを返却
 	 * @see org.ideaccum.libs.commons.logger.Logger#isInfoEnabled()
 	 * @see org.slf4j.Logger#isInfoEnabled()
+	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
 	 */
 	@Override
 	public final boolean isInfoEnabled() {
@@ -68,9 +77,12 @@ public final class LoggerImpl implements Logger {
 
 	/**
 	 * トレースレベルロギングが有効であるか判定します。<br>
+	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
 	 * @return 有効な場合にtrueを返却
 	 * @see org.ideaccum.libs.commons.logger.Logger#isTraceEnabled()
 	 * @see org.slf4j.Logger#isTraceEnabled()
+	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
 	 */
 	@Override
 	public final boolean isTraceEnabled() {
@@ -79,8 +91,12 @@ public final class LoggerImpl implements Logger {
 
 	/**
 	 * 警告レベルロギングが有効であるか判定します。<br>
+	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
 	 * @return 有効な場合にtrueを返却
+	 * @see org.ideaccum.libs.commons.logger.Logger#isTraceEnabled()
 	 * @see org.slf4j.Logger#isWarnEnabled()
+	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
 	 */
 	@Override
 	public final boolean isWarnEnabled() {
