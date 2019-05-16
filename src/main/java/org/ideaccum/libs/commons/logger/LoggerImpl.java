@@ -17,6 +17,7 @@ import org.ideaccum.libs.commons.message.Messages;
  * 更新日		更新者			更新内容
  * 2018/06/13	Kitagawa		新規作成
  * 2019/05/06	Kitagawa		is***Enabledメソッドをインタフェース側にプルアップ
+ * 2019/05/16	Kitagawa		is***Enabledメソッドを破棄し、メッセージコードを引数としてレベルを動的判定するisOutputEnabledメソッドを追加
  *-->
  */
 public final class LoggerImpl implements Logger {
@@ -33,74 +34,107 @@ public final class LoggerImpl implements Logger {
 		this.logger = logger;
 	}
 
-	/**
-	 * デバッグレベルロギングが有効であるか判定します。<br>
-	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
-	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
-	 * @return 有効な場合にtrueを返却
-	 * @see org.ideaccum.libs.commons.logger.Logger#isDebugEnabled()
-	 * @see org.slf4j.Logger#isDebugEnabled()
-	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
-	 */
-	@Override
-	public final boolean isDebugEnabled() {
-		return logger.isDebugEnabled();
-	}
+	// 2019.05.16 Deleted
+	///**
+	// * デバッグレベルロギングが有効であるか判定します。<br>
+	// * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	// * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
+	// * @return 有効な場合にtrueを返却
+	// * @see org.ideaccum.libs.commons.logger.Logger#isDebugEnabled()
+	// * @see org.slf4j.Logger#isDebugEnabled()
+	// * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
+	// */
+	//@Override
+	//public final boolean isDebugEnabled() {
+	//	return logger.isDebugEnabled();
+	//}
+
+	// 2019.05.16 Deleted
+	///**
+	// * エラーレベルロギングが有効であるか判定します。<br>
+	// * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	// * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
+	// * @return 有効な場合にtrueを返却
+	// * @see org.ideaccum.libs.commons.logger.Logger#isErrorEnabled()
+	// * @see org.slf4j.Logger#isErrorEnabled()
+	// * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
+	// */
+	//@Override
+	//public final boolean isErrorEnabled() {
+	//	return logger.isErrorEnabled();
+	//}
+
+	// 2019.05.16 Deleted
+	///**
+	// * 情報レベルロギングが有効であるか判定します。<br>
+	// * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	// * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
+	// * @return 有効な場合にtrueを返却
+	// * @see org.ideaccum.libs.commons.logger.Logger#isInfoEnabled()
+	// * @see org.slf4j.Logger#isInfoEnabled()
+	// * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
+	// */
+	//@Override
+	//public final boolean isInfoEnabled() {
+	//	return logger.isInfoEnabled();
+	//}
+
+	// 2019.05.16 Deleted
+	///**
+	// * トレースレベルロギングが有効であるか判定します。<br>
+	// * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	// * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
+	// * @return 有効な場合にtrueを返却
+	// * @see org.ideaccum.libs.commons.logger.Logger#isTraceEnabled()
+	// * @see org.slf4j.Logger#isTraceEnabled()
+	// * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
+	// */
+	//@Override
+	//public final boolean isTraceEnabled() {
+	//	return logger.isTraceEnabled();
+	//}
+
+	// 2019.05.16 Deleted
+	///**
+	// * 警告レベルロギングが有効であるか判定します。<br>
+	// * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
+	// * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
+	// * @return 有効な場合にtrueを返却
+	// * @see org.ideaccum.libs.commons.logger.Logger#isTraceEnabled()
+	// * @see org.slf4j.Logger#isWarnEnabled()
+	// * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
+	// */
+	//@Override
+	//public final boolean isWarnEnabled() {
+	//	return logger.isWarnEnabled();
+	//}
 
 	/**
-	 * エラーレベルロギングが有効であるか判定します。<br>
-	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
-	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
+	 * 指定メッセージコードの出力が有効であるかを判定します。<br>
+	 * メッセージコードにおけるメッセージレベルがロガー定義上で有効になっているかを判定し、ログ出力処理時のパラメータ部構築処理等で明示的にレベルごとに出力制御を行いたい場合に利用します。<br>
 	 * @return 有効な場合にtrueを返却
-	 * @see org.ideaccum.libs.commons.logger.Logger#isErrorEnabled()
-	 * @see org.slf4j.Logger#isErrorEnabled()
-	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
+	 * @see org.ideaccum.libs.commons.logger.Logger#isOutputEnabled(java.lang.String)
 	 */
 	@Override
-	public final boolean isErrorEnabled() {
-		return logger.isErrorEnabled();
-	}
-
-	/**
-	 * 情報レベルロギングが有効であるか判定します。<br>
-	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
-	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
-	 * @return 有効な場合にtrueを返却
-	 * @see org.ideaccum.libs.commons.logger.Logger#isInfoEnabled()
-	 * @see org.slf4j.Logger#isInfoEnabled()
-	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
-	 */
-	@Override
-	public final boolean isInfoEnabled() {
-		return logger.isInfoEnabled();
-	}
-
-	/**
-	 * トレースレベルロギングが有効であるか判定します。<br>
-	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
-	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
-	 * @return 有効な場合にtrueを返却
-	 * @see org.ideaccum.libs.commons.logger.Logger#isTraceEnabled()
-	 * @see org.slf4j.Logger#isTraceEnabled()
-	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
-	 */
-	@Override
-	public final boolean isTraceEnabled() {
-		return logger.isTraceEnabled();
-	}
-
-	/**
-	 * 警告レベルロギングが有効であるか判定します。<br>
-	 * メッセージコードによる動的レベル決定のため、このメソッドは基本的には利用しませんが、バインドメッセージ構築で負荷がかかる場合などにおいて例外的な利用の目的で用意されています。<br>
-	 * 実際の定義メッセージレベルとの整合性に注意して利用してください。<br>
-	 * @return 有効な場合にtrueを返却
-	 * @see org.ideaccum.libs.commons.logger.Logger#isTraceEnabled()
-	 * @see org.slf4j.Logger#isWarnEnabled()
-	 * @deprecated メッセージコードによる動的レベル決定による実装不整合を避けるため、原則は利用禁止です(API仕様の注意事項を理解の上で利用してください)。
-	 */
-	@Override
-	public final boolean isWarnEnabled() {
-		return logger.isWarnEnabled();
+	public final boolean isOutputEnabled(String code) {
+		Message message = Messages.instance().get(code);
+		if (message == null) {
+			return false;
+		}
+		MessageLevel level = message.getLevel();
+		if (level == MessageLevel.INFORMATION) {
+			return logger.isInfoEnabled();
+		} else if (level == MessageLevel.ERROR) {
+			return logger.isErrorEnabled();
+		} else if (level == MessageLevel.WARNING) {
+			return logger.isWarnEnabled();
+		} else if (level == MessageLevel.DEBUG) {
+			return logger.isDebugEnabled();
+		} else if (level == MessageLevel.TRACE) {
+			return logger.isTraceEnabled();
+		} else {
+			return false;
+		}
 	}
 
 	/**
