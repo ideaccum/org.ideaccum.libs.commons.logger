@@ -57,7 +57,7 @@ public final class LoggerConfigurator {
 		try {
 			InputStream stream = null;
 			try {
-				stream = ResourceUtil.getInputStream("/logback.xml");
+				stream = ResourceUtil.getInputStream("/logback-default.xml");
 				configurator.doConfigure(stream);
 			} catch (Throwable e) {
 				throw e;
