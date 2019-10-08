@@ -25,7 +25,7 @@
 		<target>System.out</target>
 		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
 		<encoder class="org.ideaccum.libs.commons.logger.CustomPatternLayoutEncoder">
-			<pattern>%date{yyyy-MM-dd HH:mm:ss, Asia/Tokyo} |-%-5level %logger.%method\(%file:%line\) - %msg%n%exception</pattern>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS, Asia/Tokyo} |-%-5level %logger.%method\(%file:%line\) - %msg%n%exception</pattern>
 		</encoder>
 	</appender>
 
@@ -53,7 +53,7 @@
 		<target>System.err</target>
 		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
 		<encoder class="org.ideaccum.libs.commons.logger.CustomPatternLayoutEncoder">
-			<pattern>%date{yyyy-MM-dd HH:mm:ss, Asia/Tokyo} |-%-5level %logger.%method\(%file:%line\) - %msg%n%exception</pattern>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS, Asia/Tokyo} |-%-5level %logger.%method\(%file:%line\) - %msg%n%exception</pattern>
 		</encoder>
 	</appender>
 
@@ -83,7 +83,7 @@
 		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
 		<encoder class="org.ideaccum.libs.commons.logger.CustomPatternLayoutEncoder">
 			<charset>UTF-8</charset>
-			<pattern>%date{yyyy-MM-dd HH:mm:ss, Asia/Tokyo} |-%-5level - %m%n</pattern>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS, Asia/Tokyo} |-%-5level - %m%n</pattern>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>logs/application-%d{yyyyMMdd}.zip</fileNamePattern>
@@ -116,7 +116,7 @@
 		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
 		<encoder class="org.ideaccum.libs.commons.logger.CustomPatternLayoutEncoder">
 			<charset>UTF-8</charset>
-			<pattern>%date{yyyy-MM-dd HH:mm:ss, Asia/Tokyo} |-%-5level - %m%n</pattern>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss.SSS, Asia/Tokyo} |-%-5level - %m%n</pattern>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>logs/error-%d{yyyyMMdd}.zip</fileNamePattern>
