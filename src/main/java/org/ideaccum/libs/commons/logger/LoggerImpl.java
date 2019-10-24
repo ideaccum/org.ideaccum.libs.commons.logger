@@ -163,7 +163,7 @@ public final class LoggerImpl implements Logger {
 		 * メッセージレベル毎ログ出力
 		 */
 		MessageLevel level = message.getLevel();
-		String string = message.getCode() + " | " + message == null ? null : message.getMessage(binds);
+		String string = message.getCode() + " | " + message.getMessage(binds);
 		if (level == MessageLevel.INFORMATION) {
 			if (logger.isInfoEnabled()) {
 				if (e != null) {
