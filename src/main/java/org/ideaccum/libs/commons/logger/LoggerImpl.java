@@ -11,13 +11,11 @@ import org.ideaccum.libs.commons.message.Messages;
  * {@link org.ideaccum.libs.commons.logger.LoggerFactory}を利用してインスタンスを取得して利用します。<br>
  * </p>
  * 
- * @author Kitagawa<br>
- * 
  *<!--
- * 更新日		更新者			更新内容
- * 2018/06/13	Kitagawa		新規作成
- * 2019/05/06	Kitagawa		is***Enabledメソッドをインタフェース側にプルアップ
- * 2019/05/16	Kitagawa		is***Enabledメソッドを破棄し、メッセージコードを引数としてレベルを動的判定するisOutputEnabledメソッドを追加
+ * 更新日      更新者           更新内容
+ * 2018/06/13  Kitagawa         新規作成
+ * 2019/05/06  Kitagawa         is***Enabledメソッドをインタフェース側にプルアップ
+ * 2019/05/16  Kitagawa         is***Enabledメソッドを破棄し、メッセージコードを引数としてレベルを動的判定するisOutputEnabledメソッドを追加
  *-->
  */
 public final class LoggerImpl implements Logger {

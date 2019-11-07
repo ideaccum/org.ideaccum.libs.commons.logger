@@ -13,11 +13,9 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
  * クラスが提供する機能は{@link org.ideaccum.libs.commons.logger.Logger}によってログ出力する際のスタックトレースオフセット補正のみです。<br>
  * </p>
  * 
- * @author Kitagawa<br>
- * 
  *<!--
- * 更新日		更新者			更新内容
- * 2018/06/04	Kitagawa		新規作成
+ * 更新日      更新者           更新内容
+ * 2018/06/04  Kitagawa         新規作成
  *-->
  */
 public final class CustomPatternLayoutEncoder extends PatternLayoutEncoder {

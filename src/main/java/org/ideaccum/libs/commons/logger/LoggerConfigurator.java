@@ -20,11 +20,9 @@ import ch.qos.logback.core.joran.spi.JoranException;
  * このクラスでは、多くの場合に実装される単純な初期化処理を簡潔に記述するための初期化処理インタフェースを提供します。<br>
  * </p>
  * 
- * @author Kitagawa<br>
- * 
  *<!--
- * 更新日		更新者			更新内容
- * 2018/06/13	Kitagawa		新規作成
+ * 更新日      更新者           更新内容
+ * 2018/06/13  Kitagawa         新規作成
  *-->
  */
 public final class LoggerConfigurator {

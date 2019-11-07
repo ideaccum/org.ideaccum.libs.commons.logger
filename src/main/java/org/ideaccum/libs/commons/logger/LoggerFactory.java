@@ -7,11 +7,9 @@ package org.ideaccum.libs.commons.logger;
  * 既存実装において、slf4jの{@link org.slf4j.Logger}を利用している個所について、置換を行う際に修正個所を局所的にすることを目的としています。<br>
  * </p>
  * 
- * @author Kitagawa<br>
- * 
  *<!--
- * 更新日		更新者			更新内容
- * 2018/06/13	Kitagawa		新規作成
+ * 更新日      更新者           更新内容
+ * 2018/06/13  Kitagawa         新規作成
  *-->
  */
 public class LoggerFactory {
