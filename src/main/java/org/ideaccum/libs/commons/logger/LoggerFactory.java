@@ -1,5 +1,7 @@
 package org.ideaccum.libs.commons.logger;
 
+import org.ideaccum.libs.commons.message.Messages;
+
 /**
  * ロギングクライスインスタンスを生成するインタフェースを提供します。<br>
  * <p>
@@ -23,11 +25,12 @@ public class LoggerFactory {
 
 	/**
 	 * ロギングクラスインスタンスを提供します。<br>
-	 * @param name ロガー名称
+	 * @param clazz ログ出力元クラス
+	 * @param messages メッセージ定義情報
 	 * @return ロギングクラスインスタンス
 	 */
-	public static Logger getLogger(String name) {
-		return new LoggerImpl(org.slf4j.LoggerFactory.getLogger(name));
+	public static Logger getLogger(Class<?> clazz, Messages messages) {
+		return new LoggerImpl(org.slf4j.LoggerFactory.getLogger(clazz), messages);
 	}
 
 	/**
@@ -37,5 +40,24 @@ public class LoggerFactory {
 	 */
 	public static Logger getLogger(Class<?> clazz) {
 		return new LoggerImpl(org.slf4j.LoggerFactory.getLogger(clazz));
+	}
+
+	/**
+	 * ロギングクラスインスタンスを提供します。<br>
+	 * @param name ロガー名称
+	 * @param messages メッセージ定義情報
+	 * @return ロギングクラスインスタンス
+	 */
+	public static Logger getLogger(String name, Messages messages) {
+		return new LoggerImpl(org.slf4j.LoggerFactory.getLogger(name), messages);
+	}
+
+	/**
+	 * ロギングクラスインスタンスを提供します。<br>
+	 * @param name ロガー名称
+	 * @return ロギングクラスインスタンス
+	 */
+	public static Logger getLogger(String name) {
+		return new LoggerImpl(org.slf4j.LoggerFactory.getLogger(name));
 	}
 }

@@ -23,13 +23,26 @@ public final class LoggerImpl implements Logger {
 	/** SLF4Jロガーオブジェクト */
 	private org.slf4j.Logger logger;
 
+	/** メッセージ定義情報 */
+	private Messages messages;
+
+	/**
+	 * コンストラクタ<br>
+	 * @param logger SLF4Jロガーオブジェクト
+	 * @param messages メッセージ定義情報
+	 */
+	protected LoggerImpl(org.slf4j.Logger logger, Messages messages) {
+		super();
+		this.logger = logger;
+		this.messages = messages;
+	}
+
 	/**
 	 * コンストラクタ<br>
 	 * @param logger SLF4Jロガーオブジェクト
 	 */
 	protected LoggerImpl(org.slf4j.Logger logger) {
-		super();
-		this.logger = logger;
+		this(logger, Messages.global());
 	}
 
 	// 2019.05.16 Deleted
@@ -115,7 +128,7 @@ public final class LoggerImpl implements Logger {
 	 */
 	@Override
 	public final boolean isOutputEnabled(String code) {
-		Message message = Messages.instance().get(code);
+		Message message = messages.get(code);
 		if (message == null) {
 			return false;
 		}
@@ -149,7 +162,7 @@ public final class LoggerImpl implements Logger {
 		/*
 		 * メッセージ定義情報取得
 		 */
-		Message message = Messages.instance().get(code);
+		Message message = messages.get(code);
 		if (message == null) {
 			//if (logger.isErrorEnabled()) {
 			logger.error("Failed to output log message(Undefined message code=" + code + ").");

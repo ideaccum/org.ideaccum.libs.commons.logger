@@ -4,7 +4,6 @@ import org.ideaccum.libs.commons.logger.Logger;
 import org.ideaccum.libs.commons.logger.LoggerConfigurator;
 import org.ideaccum.libs.commons.logger.LoggerFactory;
 import org.ideaccum.libs.commons.message.Messages;
-import org.ideaccum.libs.commons.util.PropertiesUtil;
 import org.ideaccum.libs.commons.util.ResourceUtil;
 
 public class TestLogger {
@@ -15,7 +14,7 @@ public class TestLogger {
 
 	private void test() throws Throwable {
 		// メッセージリソースを読み込みます
-		Messages.instance().addMessage(PropertiesUtil.load("/org/ideaccum/libs/commons/logger/test/TestLogger.properties"));
+		Messages.global().load("/org/ideaccum/libs/commons/logger/test/TestLogger.properties");
 
 		// 必要に応じてログ出力環境定義情報で初期化を行います(slf4jで利用する初期化定義体と同様)
 		LoggerConfigurator.initialize(ResourceUtil.getURL("/logback-sample.xml"));
